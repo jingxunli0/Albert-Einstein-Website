@@ -48,6 +48,7 @@ body {
   color: var(--lightNavy);
 }
 
+.firstBlock,
 .secondBlock,
 .thirdBlock,
 .fourthBlock,
@@ -96,26 +97,22 @@ nav {
 }
 
 .first {
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 10px;
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  gap: 40px;
-  display: flex;
-  background-color: var(--midDarkNavy);
 }
 
 #aboutImg {
-  flex: 0 0 35%;
+  display: flex;
   margin-left: 10px;
-  /* margin-right: 10px; */
 }
 
 #aboutImg img {
   display: block;
   width: 100%;
-  aspect-ratio: 1/1;
   object-fit: cover;
+  margin: 10px;
   border-radius: var(--main-radius);
 }
 
@@ -330,6 +327,11 @@ nav {
   border-radius: var(--main-radius);
 }
 
+#blog button {
+  align-self: flex-start;
+  padding: 5px 20px;
+}
+
 /* Footer */
 
 footer {
@@ -345,6 +347,12 @@ footer {
 footer p {
   margin-left: auto;
   margin-right: auto;
+}
+
+footer img {
+  display: block;
+  width: 35px;
+  margin: 10px;
 }
 
 /* Menu Button for Phone */
@@ -365,15 +373,14 @@ footer p {
     grid-template-columns: 1fr;
     grid-template-rows: 0.2fr 1fr 1fr 1fr 1fr 1fr 0.2fr;
 
-    grid-template-areas: 
-    "header"
-    "firstBlock"
-    "secondBlock"
-    "thirdBlock"
-    "fourthBlock"
-    "fifthBlock"
-    "footer"
-    ;
+    grid-template-areas:
+      "header"
+      "firstBlock"
+      "secondBlock"
+      "thirdBlock"
+      "fourthBlock"
+      "fifthBlock"
+      "footer";
   }
 
   header {
@@ -399,11 +406,6 @@ footer p {
     text-align: center;
   }
 
-  .first { 
-    flex-direction: column;
-    gap: 10px;
-  }
-
   #aboutImg {
     flex: none;
     width: 100%;
@@ -414,14 +416,25 @@ footer p {
     margin: 0;
   }
 
-  #aboutLink { 
+  #aboutLink {
     flex: none;
     margin: 0;
   }
 
-  /* Since second, third, and fourth block have their own grid areas I have to manually make it to 1fr to fix the structure */
+  #aboutText p {
+    text-align: justify;
+  }
 
-  .second, .hobbies, .imageCollection {
+  .hobby p {
+    text-align: justify;
+  }
+
+  /* Since first, second, third, and fourth block have their own grid areas I have to manually make it to 1fr to fix the structure */
+
+  .first,
+  .second,
+  .hobbies,
+  .imageCollection {
     grid-template-columns: 1fr;
   }
 
